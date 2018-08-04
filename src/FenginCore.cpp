@@ -6,8 +6,8 @@
 # include <iostream>
 # include <experimental/filesystem>
 # include "FenginCore.hpp"
-# include "sigCatch.hpp"
-# include "goToBinDir.hpp"
+# include "utils/sigCatch.hpp"
+# include "utils/goToBinDir.hpp"
 
 extern "C" fengin::FenginCore *FenginCore(std::string const &execPath) {
     return new fengin::FenginCore(execPath);

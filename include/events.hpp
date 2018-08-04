@@ -5,10 +5,10 @@
 #ifndef FENGIN_EVENTS_HPP
 #define FENGIN_EVENTS_HPP
 
-# include "rendering.hpp"
-# include "ecs.hpp"
-# include "mediator.hpp"
-# include "math.hpp"
+# include "utils/rendering.hpp"
+# include "utils/ecs.hpp"
+# include "utils/mediator.hpp"
+# include "utils/math.hpp"
 
 namespace fengin::entities
 {

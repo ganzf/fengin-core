@@ -7,13 +7,13 @@
 # include <functional>
 # include <stack>
 # include <map>
-# include "futils.hpp"
-# include "types.hpp"
-# include "dloader.hpp"
-# include "ecs.hpp"
-# include "mediator.hpp"
+# include "utils/futils.hpp"
+# include "utils/types.hpp"
+# include "utils/dloader.hpp"
+# include "utils/ecs.hpp"
+# include "utils/mediator.hpp"
 # include "events.hpp"
-# include "rendering.hpp"
+# include "utils/rendering.hpp"
 
 // Utils forward declarations
 namespace futils

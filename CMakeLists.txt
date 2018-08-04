@@ -7,7 +7,7 @@ execute_process(
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
 
-include_directories(include modules/utils)
+include_directories(include modules)
 file(GLOB UTILS modules/utils/*.hpp)
 file(GLOB INCLUDE include/*.hpp)
 file(GLOB SRC src/*.hpp src/*.cpp)
