@@ -7,6 +7,8 @@ execute_process(
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
 
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/release)
+
 include_directories(include modules)
 file(GLOB UTILS modules/utils/*.hpp)
 file(GLOB INCLUDE include/*.hpp)
