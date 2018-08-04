@@ -32,7 +32,7 @@ namespace fengin {
         sig.set(SIGINT, onSigint);
     }
 
-    void fengin::FenginCore::loadSystemDir(std::string const &path, bool recursive, bool log)
+    void fengin::FenginCore::loadSystemDir(std::string const &path, bool recursive, bool log, bool loadSymlinks)
     {
         std::cout << "Loading all systems in " << path << std::endl;
         const auto fsPath = std::experimental::filesystem::path(path);
@@ -44,8 +44,11 @@ namespace fengin {
                     std::cout << "--> Loading directory " << p.path() << std::endl;
                 loadSystemDir(p.path(), recursive, log);
             }
-            if (!std::experimental::filesystem::is_directory(p.path()))
-                loadSystem(p.path());
+            if (!std::experimental::filesystem::is_directory(p.path())) {
+                const bool isSymlink = std::experimental::filesystem::is_symlink(p.path());
+                if ((loadSymlinks && isSymlink) || !isSymlink)
+                    loadSystem(p.path());
+            }
         }
     }
 

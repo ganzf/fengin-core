@@ -35,6 +35,7 @@ namespace fengin
         std::string configFilePath;
         bool recursive = false;
         bool logWhenLoading = true;
+        bool loadSymlinks = false;
     };
 
     class FenginCore
@@ -46,7 +47,7 @@ namespace fengin
         int start(StartParameters params);
         int run();
 
-        void loadSystemDir(std::string const &path, bool recursive, bool log);
+        void loadSystemDir(std::string const &path, bool recursive, bool log, bool loadSymlinks);
 
         template <typename ...Args>
         futils::LoadStatus loadSystem(std::string const &path, Args... args)
