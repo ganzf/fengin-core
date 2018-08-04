@@ -53,7 +53,7 @@ namespace fengin {
     }
 
     int fengin::FenginCore::start(const StartParameters params) {
-        this->loadSystemDir(params.configFilePath, params.recursive, params.logWhenLoading);
+        this->loadSystemDir(params.configFilePath, params.recursive, params.logWhenLoading, params.loadSymlinks);
         const int numberOfSystems = core->getNumberOfSystems();
         events->send<std::string>("Fender loaded " + std::to_string(numberOfSystems) + " systems.");
         return core->run(); // this will init all systems
