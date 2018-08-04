@@ -2,20 +2,20 @@
 // Created by arroganz on 11/29/17.
 //
 
-#ifndef FENDER_EVENTS_HPP
-#define FENDER_EVENTS_HPP
+#ifndef FENGIN_EVENTS_HPP
+#define FENGIN_EVENTS_HPP
 
 # include "rendering.hpp"
 # include "ecs.hpp"
 # include "mediator.hpp"
 # include "math.hpp"
 
-namespace fender::entities
+namespace fengin::entities
 {
     class Camera;
 }
 
-namespace fender::events {
+namespace fengin::events {
     struct Alert
     {
         std::string what;
@@ -34,9 +34,9 @@ namespace fender::events {
     class RequestCamera
     {
         std::string name;
-        std::function<void(fender::entities::Camera *)> callback;
+        std::function<void(fengin::entities::Camera *)> callback;
     public:
-        RequestCamera(std::string const &name, std::function<void(fender::entities::Camera *)> func):
+        RequestCamera(std::string const &name, std::function<void(fengin::entities::Camera *)> func):
                 name(name), callback(func)
         {
 
@@ -46,7 +46,7 @@ namespace fender::events {
             return name;
         }
 
-        std::function<void(fender::entities::Camera *)> getCallback() const {
+        std::function<void(fengin::entities::Camera *)> getCallback() const {
             return callback;
         }
     };
@@ -58,4 +58,4 @@ namespace fender::events {
     };
 }
 
-#endif //FENDER_EVENTS_HPP
+#endif //FENGIN_EVENTS_HPP

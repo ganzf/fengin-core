@@ -22,7 +22,7 @@ namespace futils
     class Ini;
 }
 
-namespace fender
+namespace fengin
 {
     using vec2f = futils::Vec2<float>;
     using vec3f = futils::Vec3<float>;
@@ -37,12 +37,12 @@ namespace fender
         bool logWhenLoading = true;
     };
 
-    class Fender
+    class FenginCore
     {
-        futils::UP<futils::EntityManager> entityManager;
+        futils::UP<futils::EntityManager> core;
         futils::UP<futils::Mediator> events;
     public:
-        Fender(std::string const &);
+        explicit FenginCore(std::string const &);
         int start(StartParameters params);
         int run();
 
@@ -51,28 +51,28 @@ namespace fender
         template <typename ...Args>
         futils::LoadStatus loadSystem(std::string const &path, Args... args)
         {
-            return entityManager->loadSystem(path, args...);
+            return core->loadSystem(path, args...);
         };
 
         template <typename System, typename ...Args>
         void addSystem(Args ...args) {
-            entityManager->addSystem<System>(args...);
+            core->addSystem<System>(args...);
         };
 
         template <typename System>
         void addSystem()
         {
-            entityManager->addSystem<System>();
+            core->addSystem<System>();
         }
 
         template <typename System>
         void removeSystem() {
-            entityManager->removeSystem(futils::demangle<System>());
+            core->removeSystem(futils::demangle<System>());
         }
 
         template <typename T, typename ...Args>
         T *createEntity(Args ...args) {
-            return entityManager->create<T>(args...);
+            return core->create<T>(args...);
         };
     };
 }

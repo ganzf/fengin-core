@@ -15,7 +15,7 @@ include_directories(include modules/utils)
 file(GLOB UTILS modules/utils/*.hpp)
 file(GLOB INCLUDE include/*.hpp)
 file(GLOB SRC src/*.hpp src/*.cpp)
-set(SOURCE_FILES ${INCLUDE} ${SRC} ${UTILS})
+set(SOURCE_FILES ${INCLUDE} ${SRC} ${UTILS} ${COMPONENTS} ${ENTITIES})
 
 if (UNIX)
     add_compile_options(-Wall -Wextra -Werror)
