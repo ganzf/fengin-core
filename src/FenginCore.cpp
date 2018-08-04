@@ -42,7 +42,7 @@ namespace fengin {
             if (recursive && std::experimental::filesystem::is_directory(p.path())) {
                 if (log)
                     std::cout << "--> Loading directory " << p.path() << std::endl;
-                loadSystemDir(p.path(), recursive, log);
+                loadSystemDir(p.path(), recursive, log, loadSymlinks);
             }
             if (!std::experimental::filesystem::is_directory(p.path())) {
                 const bool isSymlink = std::experimental::filesystem::is_symlink(p.path());
