@@ -3,7 +3,7 @@ set(CMAKE_CXX_STANDARD 17)
 project(fengin-core)
 
 execute_process(
-        COMMAND git submodule update --remote --init
+        COMMAND git submodule foreach git pull origin master
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
 
