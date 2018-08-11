@@ -10,10 +10,10 @@
 # include "utils/futils.hpp"
 # include "utils/types.hpp"
 # include "utils/dloader.hpp"
-# include "utils/ecs.hpp"
 # include "utils/mediator.hpp"
-# include "events.hpp"
 # include "utils/rendering.hpp"
+# include "events.hpp"
+# include "ecs.hpp"
 
 // Utils forward declarations
 namespace futils
@@ -40,8 +40,8 @@ namespace fengin
 
     class FenginCore
     {
-        futils::UP<futils::EntityManager> core;
-        futils::UP<futils::Mediator> events;
+        futils::UP<EntityManager> core;
+        futils::UP<EventManager> events;
     public:
         explicit FenginCore(std::string const &);
         int start(StartParameters params);
@@ -50,7 +50,7 @@ namespace fengin
         void loadSystemDir(std::string const &path, bool recursive, bool log, bool loadSymlinks);
 
         template <typename ...Args>
-        futils::LoadStatus loadSystem(std::string const &path, Args... args)
+        LoadStatus loadSystem(std::string const &path, Args... args)
         {
             return core->loadSystem(path, args...);
         };

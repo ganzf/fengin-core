@@ -6,9 +6,9 @@
 #define FENGIN_EVENTS_HPP
 
 # include "utils/rendering.hpp"
-# include "utils/ecs.hpp"
 # include "utils/mediator.hpp"
 # include "utils/math.hpp"
+# include "ecs.hpp"
 
 namespace fengin::entities
 {
@@ -53,8 +53,8 @@ namespace fengin::events {
 
     struct Collision
     {
-        futils::IEntity *first;
-        futils::IEntity *second;
+        Entity *first;
+        Entity *second;
     };
 }
 

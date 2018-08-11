@@ -25,9 +25,9 @@ namespace fengin {
     FenginCore::FenginCore(std::string const &arg0){
         futils::goToBinDir(arg0);
 
-        core = std::make_unique<futils::EntityManager>();
-        events = std::make_unique<futils::Mediator>();
-        core->provideMediator(*events);
+        core = std::make_unique<EntityManager>();
+        events = std::make_unique<EventManager >();
+        core->provideEventManager(*events);
         futils::SigHandler &sig = futils::SigHandler::inst();
         sig.set(SIGINT, onSigint);
     }
